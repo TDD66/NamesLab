@@ -14,9 +14,9 @@ public class GreetingController {
         return String.format("Good %s %s!", time, greeting.getName());
     }
 
-    @GetMapping(value = "/eid")
-    public String newCelebration(){
+    @GetMapping(value = "/{occasion}")
+    public String newCelebration(@PathVariable("occasion") String occasion){
         Celebration celebration = new Celebration("Happy");
-        return String.format("%s eid", celebration.getMessage());
+        return String.format("%s %s", celebration.getMessage(), occasion);
     }
 }
